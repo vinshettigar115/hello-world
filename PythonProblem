@@ -1,0 +1,287 @@
+# Given number is armstrong or not
+
+num = int(input())
+temp = num
+r = 0 
+sum = 0
+while(temp != 0):
+    r = temp % 10
+    temp = temp // 10
+    sum = sum + (r*r*r)
+if(sum == num):
+    print(str(num)+" is armstrong number")
+else:
+    print(str(num)+" is not armstrong number")
+
+---------------------------------------------------	
+# print armstrong number from 1 to 1000
+
+print("List of armstrong number are:")
+for i in range(1,1001):
+    temp = i
+    r = 0
+    sum = 0
+    while(temp != 0):
+        r = temp % 10
+        temp = temp // 10 
+        sum = sum + (r*r*r)
+    if(i == sum):
+        print(i)
+    	
+-------------------------------------------------------
+# maximum of three number
+
+a=input()
+b,c,d = a.split()
+b = int(b)
+c = int(c)
+d = int(d)
+if(b > c):
+    if(b > d):
+        print("b = "+str(b)+" is maximum of b,c,d")
+    else:
+        print("d = "+str(d)+" is maximum of b,c,d")
+else:
+    if(c > d):
+        print("c = "+str(c)+" is maximum of b,c,d")
+    else:
+        print("d = "+str(d)+" is maximum of b,c,d")
+
+-------------------------------------------------------
+		
+# Delete all occurence from list
+
+print("Enter Value of List")
+arr = [] # List declaration
+
+array = input().split() # input Values for List
+for i in array:
+    arr.append(int(i)) # assign value to list
+	
+print("Enter number to delete from list")    
+num = int(input())  
+while(arr.count(num)):
+    arr.remove(num)
+print(arr)    
+
+-------------------------------------------------------
+
+# Even odd Array
+
+arr = [] # Entire Array 
+evenarr = [] # Even Array
+oddarr = [] # Odd Array
+array = input().split()
+for i in array:
+    arr.append(int(i))
+n = len(arr)
+
+for i in range(0,n):
+    if((arr[i] % 2) == 0):
+        evenarr.append(arr[i])
+    else:
+        oddarr.append(arr[i])
+print(evenarr)
+print(oddarr)
+---------------------------------------------------------
+
+# Sum and Average of elements in array
+
+total = 0 
+avg = 0
+arr = []
+array = input().split()
+for i in array:
+    arr.append(int(i))
+n = len(arr)
+
+for i in range(0,n):
+    total = total + arr[i]
+
+avg = total / n    
+
+print("Sum of all values of list is "+str(total))
+print("Avg of all values of list is "+str(avg))
+
+---------------------------------------------------------
+# Binomial co-efficent n!/(n!*(n-r)!)
+
+def factcal(k):
+    val = 1
+    for i in range(1,(k+1)):
+        val = val * i
+    return val
+    
+def main():
+    print("Enter value for n and r")
+    n = int(input())
+    r = int(input())
+    if(r > n):
+        print("Binomial coefficent cannot be calculated as r is greater n")
+    else:
+        f1 = factcal(n)
+        f2 = factcal(r)
+        f3 = factcal(n-r) 
+        biocoeff = f1 / (f2 * f3)
+        print("Binomail co-efficent value is "+str(biocoeff))
+if __name__ == '__main__':
+    main()
+------------------------------------------------------------
+
+# Binomial co-efficent n!/(n!*(n-r)!)
+
+def factcal(k):
+    val = 1
+    for i in range(1,(k+1)):
+        val = val * i
+    return val
+    
+def main():
+    print("Enter value for n and r")
+    a = input()
+    n,r = a.split()
+    n = int(n)
+    r = int(r)
+    if(r > n):
+        print("Binomial coefficent cannot be calculated as r is greater n")
+    else:
+        f1 = factcal(n)
+        f2 = factcal(r)
+        f3 = factcal(n-r) 
+        biocoeff = f1 / (f2 * f3)
+        print("Binomail co-efficent value is "+str(biocoeff))
+if __name__ == '__main__':
+    main()
+	
+--------------------------------------------------------------------
+	
+#Compound interest
+print("Enter principal,number of year,rate of interest")
+a = input()
+p,n,r = a.split()
+p = float(p)
+n = int(n)
+r = float(r)
+
+t = pow(1+(r/100),n)
+amount = round((p * t),2)
+print("Total amount is "+str(amount))
+amount = 0
+for i in range(1,n+1):
+    interest =  p * (r/100)
+    p = interest + p
+    
+    print("Interest after "+str(i)+" year is "+str(interest))
+    print("Amount after one " +str(p))
+------------------------------------------------------------------------------
+
+
+# Electricity Bill Calculation
+units = int(input())
+
+if(units < 0):
+    print("Invalid Electricity Unit")
+elif(units <= 200):
+    elecbill = units * 0.5
+    print(elecbill)
+elif(units >= 201 and units <= 400):
+    elecbill = 100 + (units-200)*0.65
+    print(elecbill)
+elif(units >= 401 and units <= 600):
+    elecbill = 230 + (units-400)*0.85
+    print(elecbill)
+else:
+    elecbill = 390 + (units-600)*1
+    print(elecbill)
+	------------------------------------------------------------
+# Digits to words
+print("Enter positive Number")
+n = int(input())
+n1 = n
+str1 = ""
+while(n != 0):
+    r = n % 10
+    if(r == 1):
+        str1 = " One" + str1
+    elif(r == 2):
+        str1 = " Two" + str1
+    elif(r == 3):
+        str1 = " Three" + str1
+    elif(r == 4):
+        str1 = " Four" + str1
+    elif(r == 5):
+        str1 = " Five" + str1
+    elif(r == 6):
+        str1 = " Six" + str1
+    elif(r == 7):
+        str1 = " Seven" + str1
+    elif(r == 8):
+        str1 = " Eight" + str1
+    elif(r == 9):
+        str1 = " Nine" + str1
+    else:
+        str1 = " Zero" + str1
+    n = n // 10
+print(str(n1)+" in words :"+str1)   
+-----------------
+
+# divisble by 5 and 2
+print("Enter positive No")
+num = int(input())
+if(num % 5 == 0):
+    if(num % 2 == 0):
+        print(str(num)+" is divisble by both 5 and 2")
+else:
+    print(str(num)+" is not divisble by both 5 and 2")
+	
+---------------
+
+
+def main():
+    n = int(input())
+    student_marks = {}#Dictionary
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    k = student_marks[query_name]
+    avg1 = 0.0
+    for i in k:
+        avg1 = avg1 + i
+    avg1 = avg1 / 3.0 
+    print("%.2f" %(avg1)) 
+if __name__ == '__main__':
+    main() 
+	
+---------------------------
+
+
+https://www.hackerrank.com/challenges/python-tuples/problem
+
+if __name__ == '__main__':
+    n = int(input())
+    lis = []
+    tup = ()
+    integer_list = map(int, input().split())
+    for i in integer_list:
+        lis.append(i)
+    tup = tuple(lis)
+    print(hash(tup))    
+	
+----------------------------
+
+Average of experiment
+tc = int(input())
+while(tc != 0):
+    lis = []
+    avg1 = 0
+    k = input().split()
+    for i in k:
+        lis.append(float(i))
+    for i in range(len(lis)):
+        avg1 = avg1 + lis[i]
+    avg1 = avg1/6
+    print("Average of experiment is "+str(avg1))
+    tc = tc - 1      	
+	
