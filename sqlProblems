@@ -1,0 +1,43 @@
+586. Customer Placing the Largest Number of Orders
+
+| Column            | Type      |
+|-------------------|-----------|
+| order_number (PK) | int       |
+| customer_number   | int       |
+| order_date        | date      |
+| required_date     | date      |
+| shipped_date      | date      |
+| status            | char(15)  |
+| comment           | char(200) |
+
+
+
+Solution 1 :
+
+
+SELECT T.CUSTOMER_NUMBER
+FROM
+(
+SELECT CUSTOMER_NUMBER,COUNT(CUSTOMER_NUMBER)
+FROM ORDERS
+GROUP BY CUSTOMER_NUMBER
+ORDER BY 2 DESC
+) T
+WHERE ROWNUM <= 1
+
+Foolow up question is there are multplie customer with same number of orders 
+
+Solution 2 :
+WITH CTE 
+AS
+(
+SELECT CUSTOMER_NUMBER,COUNT(CUSTOMER_NUMBER) AS CNC
+FROM ORDER
+GROUP BY CUSTOMER_NUMBER
+)
+
+
+SELECT CUSTOMER_NUMBER
+FROM CTE
+WHERE CNC = (SELECT MAX(CNC) FROM CTE)
+
