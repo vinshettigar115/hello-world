@@ -284,4 +284,15 @@ while(tc != 0):
     avg1 = avg1/6
     print("Average of experiment is "+str(avg1))
     tc = tc - 1      	
-	
+ -------------------------------
+ 
+ Reverse a number eg I/P 321 o/p 123
+ 
+ a = int(input())
+rem  = 0
+rev =  0
+while (a != 0):
+    rem = a % 10
+    rev = rev * 10 + rem
+    a = a // 10
+print("Reverse of number is ",rev)
